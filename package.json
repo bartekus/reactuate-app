@@ -2,6 +2,12 @@
   "name": "reactuate",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "start:mobile": "yarn workspace @reactuate/mobile start",
+    "mobile:ios": "yarn workspace @reactuate/mobile ios",
+    "mobile:android": "yarn workspace @reactuate/mobile android",
+    "start:web": "yarn workspace @reactuate/web start"
+  },
   "repository": "git@github.com:bartekus/reactuate-app.git",
   "author": "Bartek Kus <bartekus@gmail.com> (https://bartekus.com/)",
   "license": "Apache-2.0",
