@@ -1,0 +1,12 @@
+{
+  "name": "@reactuate/desktop",
+  "version": "0.0.1",
+  "private": false,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^5.0.0"
+  }
+}

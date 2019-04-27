@@ -1,0 +1,13 @@
+{
+  "name": "reactuate",
+  "version": "0.0.1",
+  "private": true,
+  "repository": "git@github.com:bartekus/reactuate-app.git",
+  "author": "Bartek Kus <bartekus@gmail.com> (https://bartekus.com/)",
+  "license": "Apache-2.0",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}

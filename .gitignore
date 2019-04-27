@@ -59,3 +59,10 @@ typings/
 
 # next.js build output
 .next
+
+# Other
+.DS_Store
+.history
+.vscode
+.idea
+.bin
