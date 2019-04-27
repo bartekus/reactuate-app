@@ -1,6 +1,6 @@
 import { AppRegistry } from 'react-native';
 
-import App from 'components/src/App';
+import App from '../../components/src/App';
 
 AppRegistry.registerComponent('reactuate', () => App);
 AppRegistry.runApplication('reactuate', {
