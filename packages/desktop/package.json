@@ -2,7 +2,8 @@
   "name": "@reactuate/desktop",
   "version": "0.0.1",
   "private": false,
-  "main": "main.js",
+  "homepage": "./",
+  "main": "src/electron-starter.js",
   "scripts": {
     "start": "electron ."
   },

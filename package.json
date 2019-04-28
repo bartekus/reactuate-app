@@ -3,10 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "start:desktop": "yarn workspace @reactuate/desktop start",
     "start:mobile": "yarn workspace @reactuate/mobile start",
     "mobile:ios": "yarn workspace @reactuate/mobile ios",
     "mobile:android": "yarn workspace @reactuate/mobile android",
-    "start:web": "yarn workspace @reactuate/web start"
+    "test:mobile": "yarn workspace @reactuate/mobile test",
+    "build:web": "yarn workspace @reactuate/web build",
+    "start:web": "yarn workspace @reactuate/web start",
+    "test:web": "yarn workspace @reactuate/web test"
   },
   "repository": "git@github.com:bartekus/reactuate-app.git",
   "author": "Bartek Kus <bartekus@gmail.com> (https://bartekus.com/)",
