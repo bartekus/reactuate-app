@@ -10,11 +10,15 @@
     "test:mobile": "yarn workspace @reactuate/mobile test",
     "build:web": "yarn workspace @reactuate/web build",
     "start:web": "yarn workspace @reactuate/web start",
-    "test:web": "yarn workspace @reactuate/web test"
+    "test:web": "yarn workspace @reactuate/web test",
+    "rebuild": "rm -rf node_modules yarn.lock packages/desktop/node_modules packages/mobile/node_modules packages/web/node_modules && yarn"
   },
   "repository": "git@github.com:bartekus/reactuate-app.git",
   "author": "Bartek Kus <bartekus@gmail.com> (https://bartekus.com/)",
   "license": "Apache-2.0",
+  "dependencies": {
+    "react-native": "0.59.5"
+  },
   "workspaces": {
     "packages": [
       "packages/*"
