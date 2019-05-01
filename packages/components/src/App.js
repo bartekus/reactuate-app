@@ -2,6 +2,8 @@ import React from 'react';
 import { Platform, Text, View } from 'react-native';
 import styled from 'styled-components';
 
+import Container from './atoms/Container';
+
 const { vh } = require('./utils/viewport');
 
 const instructions = Platform.select({
@@ -14,7 +16,7 @@ const instructions = Platform.select({
 export default class App extends React.Component {
   render() {
     return (
-      <Container>
+      <Container full fullVertical>
         <Header />
 
         <Main>
@@ -32,14 +34,6 @@ export default class App extends React.Component {
     );
   }
 }
-
-const Container = styled(View)`
-	flex: 1;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	background-color: papayawhip;
-`;
 
 const Header = styled(View)`
 	width: 100%;
