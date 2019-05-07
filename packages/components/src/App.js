@@ -26,7 +26,7 @@ export default class App extends React.Component {
               <Title>Welcome to React Native Web</Title>
               <Subtitle>with 💅 Styled Components</Subtitle>
 
-              <Note>This component is being shared between iOS, Android & Web</Note>
+              <Note>This component is being shared between Desktop, Mobile (iOS+Android) & Web</Note>
               <Note>{instructions}</Note>
 
           </Flex>
