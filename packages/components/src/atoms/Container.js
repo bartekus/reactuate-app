@@ -1,15 +1,9 @@
 import { View } from 'react-native';
 import styled from 'styled-components';
 
-const { vw } = require('../utils/viewport');
+const { vh, vw } = require('../utils/viewport');
 
-const Container = styled(View)`
-  flex: 1;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	background-color: papayawhip;
-	
+export const Container = styled(View)`	
   padding-left: ${props => {
     if (props.full) return 0;
     return (((100*vw - 960) / 2) + 'px');
@@ -31,6 +25,9 @@ const Container = styled(View)`
     if (props.small) return '15px';
     return '25px'
   }};
+  
+   min-height: ${props => {
+    if (props.fullHorizontal) return 100*vh + 'px';
+    return undefined;
+  }};
 `;
-
-export default Container;

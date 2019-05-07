@@ -1,8 +1,8 @@
 import React from 'react';
-import { Platform, Text, View } from 'react-native';
 import styled from 'styled-components';
+import { Platform, Text, View } from 'react-native';
 
-import Container from './atoms/Container';
+import { Container, Flex } from './atoms';
 
 const { vh } = require('./utils/viewport');
 
@@ -16,20 +16,24 @@ const instructions = Platform.select({
 export default class App extends React.Component {
   render() {
     return (
-      <Container full fullVertical>
+      <Container full fullVertical fullHorizontal>
+
         <Header />
 
         <Main>
+          <Flex alignCenter justifyCenter column flex1>
 
-          <Title>Welcome to React Native Web</Title>
-          <Subtitle>with 💅 Styled Components</Subtitle>
+              <Title>Welcome to React Native Web</Title>
+              <Subtitle>with 💅 Styled Components</Subtitle>
 
-          <Note>This component is being shared between iOS, Android & Web</Note>
-          <Note>{instructions}</Note>
+              <Note>This component is being shared between iOS, Android & Web</Note>
+              <Note>{instructions}</Note>
 
+          </Flex>
         </Main>
 
         <Footer />
+
       </Container>
     );
   }
@@ -45,8 +49,6 @@ const Main = styled(View)`
 	width: 100%;
 	height: ${80*vh}px;
 	background-color: skyblue;
-	align-items: center;
-	justify-content: center;
 `;
 
 const Footer = styled(View)`
