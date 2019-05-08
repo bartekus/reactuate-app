@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Platform, Text, View } from 'react-native';
 
-import { Container, Flex } from './atoms';
+import { scale, verticalScale, moderateScale } from './utils/scaling';
+import { Container, Flex, Heading } from './atoms';
 
 const { vh } = require('./utils/viewport');
 
@@ -23,11 +24,33 @@ export default class App extends React.Component {
         <Main>
           <Flex alignCenter justifyCenter column flex1>
 
-              <Title>Welcome to React Native Web</Title>
-              <Subtitle>with 💅 Styled Components</Subtitle>
+            <Box>
+              <Flex alignStretch justifyBetween column flex1>
 
-              <Note>This component is being shared between Desktop, Mobile (iOS+Android) & Web</Note>
-              <Note>{instructions}</Note>
+                <Flex alignCenter column>
+                  <Heading h1><Title>Welcome to</Title></Heading>
+                  <Heading h2><Subtitle>React Native Web</Subtitle></Heading>
+                </Flex>
+
+                <Flex alignCenter column>
+                  <Heading h5><Note>The template includes</Note></Heading>
+                  <Heading h3><Subtitle> 💅 Styled Components</Subtitle></Heading>
+                </Flex>
+
+                <Flex column>
+                  <Heading h5><Info>This component is shared between</Info></Heading>
+
+                  <Heading h4><Title>🖥️ Desktop</Title></Heading>
+                  <Heading h4><Title>📱 Mobile ( iOS & Android )</Title></Heading>
+                  <Heading h4><Title>💻 Web</Title></Heading>
+                </Flex>
+
+                <Flex alignCenter justifyEnd column>
+                  <Heading h5><Note>{instructions}</Note></Heading>
+                </Flex>
+
+              </Flex>
+            </Box>
 
           </Flex>
         </Main>
@@ -48,7 +71,17 @@ const Header = styled(View)`
 const Main = styled(View)`
 	width: 100%;
 	height: ${80*vh}px;
+	background-color: darkcyan;
+`;
+
+const Box = styled(View)`
+  flex: 1;
+	width: ${moderateScale(320)}px;
+	height: ${verticalScale(460)}px;
+	padding: ${scale(10)}px;
 	background-color: skyblue;
+
+	border-radius: ${1/4};
 `;
 
 const Footer = styled(View)`
@@ -58,22 +91,19 @@ const Footer = styled(View)`
 `;
 
 const Title = styled(Text)`
-	font-size: 24px;
-	font-weight: 500;
 	color: palevioletred;
 `;
 
 const Subtitle = styled(Text)`
-	font-size: 18px;
-	font-weight: 400;
 	color: purple;
-	margin-bottom: 55px;
+`;
+
+const Info = styled(Text)`
+	color: steelblue;
+	text-align: left;
 `;
 
 const Note = styled(Text)`
-	font-size: 16px;
-	font-weight: 300;
 	color: forestgreen;
-	margin-bottom: 55px;
 	text-align: center;
 `;
