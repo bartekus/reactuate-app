@@ -54,10 +54,10 @@ const HeadingFive = styled(Text)`
     ${baseStyle};
 `;
 
-export const Heading = ({ h2, h3, h4, h5, noMargin, right, center, ...props }) => {
-    if (h2) return <HeadingTwo noMargin={noMargin} right={right} center={center} {...props} />;
-    if (h3) return <HeadingThree noMargin={noMargin} right={right} center={center} {...props} />;
-    if (h4) return <HeadingFour noMargin={noMargin} right={right} center={center} {...props} />;
-    if (h5) return <HeadingFive noMargin={noMargin} right={right} center={center} {...props} />;
-    return <HeadingOne noMargin={noMargin} right={right} center={center} {...props} />
+export const Heading = ({ h2, h3, h4, h5, right, center, ...props }) => {
+    if (h2) return <HeadingTwo right={right} center={center} {...props} />;
+    if (h3) return <HeadingThree right={right} center={center} {...props} />;
+    if (h4) return <HeadingFour right={right} center={center} {...props} />;
+    if (h5) return <HeadingFive right={right} center={center} {...props} />;
+    return <HeadingOne right={right} center={center} {...props} />
 };
