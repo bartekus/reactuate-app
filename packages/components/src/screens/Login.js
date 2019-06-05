@@ -3,16 +3,16 @@ import { AsyncStorage, Button } from 'react-native';
 
 import { Container, Flex, Heading } from '../atoms';
 
-LoginScreen.path = 'login';
-LoginScreen.navigationOptions = {
+Login.path = 'login';
+Login.navigationOptions = {
   title: 'Login',
   linkName: 'Login Page'
 };
 
-export function LoginScreen({ navigation: { navigate } }) {
+export function Login({ navigation: { navigate } }) {
   const _signInAsync = async () => {
     await AsyncStorage.setItem('userToken', 'abc');
-    navigate('HomeScreen');
+    navigate('Home');
   };
 
   return (

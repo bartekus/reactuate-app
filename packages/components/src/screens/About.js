@@ -3,13 +3,13 @@ import { Button } from "react-native";
 
 import { Container, Flex, Heading } from '../atoms';
 
-AboutScreen.path = "about";
-AboutScreen.navigationOptions = {
+About.path = "about";
+About.navigationOptions = {
   title: "About",
   linkName: "About Page"
 };
 
-export function AboutScreen({ navigation }) {
+export function About({ navigation }) {
   const { navigate } = navigation;
 
   return (
@@ -17,7 +17,7 @@ export function AboutScreen({ navigation }) {
       <Flex alignCenter column>
         <Heading>About Page</Heading>
         <Button
-          onPress={() => navigate('HomeScreen')}
+          onPress={() => navigate('Home')}
           title='Go Home'
         />
       </Flex>

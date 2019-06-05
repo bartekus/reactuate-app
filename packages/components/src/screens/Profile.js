@@ -3,13 +3,13 @@ import { Button } from 'react-native';
 
 import { Container, Flex, Heading } from '../atoms';
 
-ProfileScreen.path = 'person/:name';
-ProfileScreen.navigationOptions = ({ navigation }) => ({
+Profile.path = 'person/:name';
+Profile.navigationOptions = ({ navigation }) => ({
   title: navigation.getParam('name'),
   linkName: 'Profile Page'
 });
 
-export function ProfileScreen({ navigation }) {
+export function Profile({ navigation }) {
   const { getParam, navigate } = navigation;
 
   return (
@@ -17,7 +17,7 @@ export function ProfileScreen({ navigation }) {
       <Flex alignCenter column>
         <Heading>{ getParam('name') }'s Profile</Heading>
         <Button
-          onPress={() => navigate('HomeScreen')}
+          onPress={() => navigate('Home')}
           title='Go Home'
         />
       </Flex>
