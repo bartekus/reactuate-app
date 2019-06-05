@@ -45,7 +45,7 @@ export const Header = ({ onBack, title }) => {
             order: 2,
           }}
         >
-          <StyledTitle accessibilityRole="header" aria-level="3">
+          <StyledTitle accessibilityRole="heading" aria-level="3">
             { title }
           </StyledTitle>
         </StyledHeaderCenter>
