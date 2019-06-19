@@ -11,15 +11,27 @@
     "build:web": "yarn workspace @reactuate/web build",
     "start:web": "yarn workspace @reactuate/web start",
     "test:web": "yarn workspace @reactuate/web test",
+    "start:server": "yarn workspace @reactuate/server start",
     "rebuild": "rm -rf node_modules yarn.lock packages/desktop/node_modules packages/mobile/node_modules packages/web/node_modules && yarn"
   },
   "repository": "git@github.com:bartekus/reactuate-app.git",
   "author": "Bartek Kus <bartekus@gmail.com> (https://bartekus.com/)",
   "license": "Apache-2.0",
   "dependencies": {
+    "apollo-cache-inmemory": "1.6.0",
+    "apollo-client": "2.6.0",
+    "apollo-link": "1.2.11",
+    "apollo-link-error": "1.1.10",
+    "apollo-link-http": "1.5.14",
+    "fbemitter": "^2.1.1",
+    "graphql-tag": "^2.10.1",
     "react": "^16.8.6",
+    "react-apollo": "2.5.6",
+    "react-apollo-hooks": "^0.4.5",
     "react-native": "0.59.5",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "url": "^0.11.0",
+    "qs": "^6.7.0"
   },
   "workspaces": {
     "packages": [
