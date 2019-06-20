@@ -53,35 +53,38 @@ module.exports = async app => {
     res.redirect("/auth");
   });
 
+  // TODO: Perhaps this could be move to a better place
   app.get("/process", (req, res, next) => {
-    console.log('/process header', req.headers);
     const cookie = req.headers.cookie;
-
     const sessionId = cookie.split(';')[0].split('=')[1];
-
-    console.log('sessionId', sessionId);
 
     res.type('html').send(`\
       <!DOCTYPE html>
       <html><head></head><body>
-      <p>Please wait while we redirect you to Your APP NAME...</p>
-      <p><a href="javascript:redirectToApp()">Open appname</a></p>
+      <p>Please wait while we redirect you...</p>
       <script>
         var redirectToApp = function() {
           var scheme = "reactuate";
-          var openURL = "appname" + window.location.pathname + window.location.search + window.location.hash;
-          console.log('openURL', openURL);
+          var openURL = "callback?${sessionId}";
           var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
           var Android = /Android/.test(navigator.userAgent);
+          var newLocation;
+          
           if (iOS) {
-            newLocation = scheme + ":" + openURL;
-          } else if (Android) {
-            newLocation = "intent://" + openURL + "#Intent;scheme=" + scheme + ";package=com.reactuate-app;end";
-          } else {
             newLocation = scheme + "://" + openURL;
+          } else if (Android) {
+            newLocation = "intent://" + openURL + "#Intent;scheme=" + scheme + ";package=com.reactuate;end";
+          } else {
+            newLocation =  'http://localhost:5678/' + openURL;
           }
-         
-          window.location.replace('reactuate://callback?${sessionId}');
+ 
+          if (!iOS && !Android) {
+            window.opener.postMessage(newLocation);
+            window.close();
+          } else {
+            window.location.replace(newLocation);
+          }
+
         };
         window.onload = redirectToApp;
       </script>
