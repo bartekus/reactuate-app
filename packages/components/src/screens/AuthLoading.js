@@ -8,11 +8,11 @@ export class AuthLoading extends React.Component {
   }
 
   _bootstrapAsync = async () => {
-    const userToken = await AsyncStorage.getItem('userToken');
+    const connectSid = await AsyncStorage.getItem('connectSid');
 
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
-    this.props.navigation.navigate(userToken ? 'Home' : 'Login');
+    this.props.navigation.navigate(connectSid ? 'home' : 'login');
   };
 
   render() {

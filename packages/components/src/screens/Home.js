@@ -33,7 +33,7 @@ export function Home({ navigation }) {
 
   const _signOutAsync = async () => {
     await AsyncStorage.clear();
-    navigate('Login');
+    navigate('callback');
   };
 
   return (

@@ -1,10 +1,16 @@
 import React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
-import { createNavigator, SwitchRouter, SceneView } from "@react-navigation/core";
+import { createNavigator, StackRouter, SwitchRouter, SceneView } from "@react-navigation/core";
 
-import { useScreenSize } from './hooks/useScreenSize';
-import { About, AuthLoading, Home, Login, Modal, Profile } from './screens';
 import { Header } from './organisms';
+import { ApolloProvider } from "react-apollo";
+import { useScreenSize } from './hooks/useScreenSize';
+import { ApolloProvider as ApolloHooksProvider } from "react-apollo-hooks";
+import { About, AuthLoading, Home, Login, Modal, Profile } from './screens';
+
+import { makeClient } from "./apolloClient";
+
+const client = makeClient();
 
 export function AuthView(props) {
   const size = useScreenSize();
@@ -115,20 +121,27 @@ export function AppView(props) {
   const descriptor = descriptors[activeKey];
 
   return (
-    <SceneView
-      component={descriptor.getComponent()}
-      navigation={descriptor.navigation}
-    />
+    <ApolloProvider client={client}>
+      <ApolloHooksProvider client={client}>
+        <SceneView
+          component={descriptor.getComponent()}
+          navigation={descriptor.navigation}
+        />
+      </ApolloHooksProvider>
+    </ApolloProvider>
   );
 }
 
 const AuthStack = createNavigator(
   AuthView,
-  SwitchRouter({
-    Login,
+  StackRouter({
+    callback: AuthLoading,
+    login: Login,
   }),
   {}
 );
+
+AuthStack.path = '';
 
 const HomeStack = createNavigator(
   HomeView,
@@ -153,18 +166,17 @@ ModalStack.path = "";
 const AppNavigator = createNavigator(
   AppView,
   SwitchRouter({
-    AuthLoading: AuthLoading,
-    Auth: AuthStack,
-    App: HomeStack,
+    callback: AuthStack,
+    home: HomeStack,
     Modal: ModalStack,
   }),
   {
-    initialRouteName: 'AuthLoading',
+    initialRouteName: 'callback',
     mode: 'modal',
     headerMode: 'none',
   }
 );
 
-AppNavigator.path = 'login';
+AppNavigator.path = '';
 
 export default AppNavigator;
