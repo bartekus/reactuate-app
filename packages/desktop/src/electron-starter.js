@@ -22,7 +22,7 @@ function createWindow() {
 
     // and load the index.html of the app.
     const startUrl = __DEV__
-      ? 'http://localhost:3000'
+      ? 'http://localhost:5678'
       : url.format({
             pathname: path.join(__dirname, '../../web/build/index.html'),
             protocol: 'file:',
